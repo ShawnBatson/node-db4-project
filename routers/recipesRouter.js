@@ -1,7 +1,10 @@
 const express = require("express");
+const recipesModel = require("./recipes-model");
 const db = require("../data/config");
 
-const router = express.Router();
+const router = express.Router({
+    mergeParams: true,
+});
 
 router.get("/", async (req, res, next) => {
     try {
