@@ -14,4 +14,18 @@ router.get("/", async (req, res, next) => {
     }
 });
 
+router.get("/:id/shoppingList", async (req, res, next) => {
+    const { id } = req.params;
+    recipesModel.getShoppingList(id).then((list) => {
+        res.json(list);
+    });
+});
+
+router.get("/:id/instructions", async (req, res, next) => {
+    const { id } = req.params;
+    recipesModel.getInstructions(id).then((instruction) => {
+        res.json(instruction);
+    });
+});
+
 module.exports = router;
